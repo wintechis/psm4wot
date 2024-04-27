@@ -1,0 +1,328 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix math: <http://openmath.org/vocab/math#> .
+@prefix rel: <https://openmath.org/cd/relation1#> .
+@prefix log: <https://openmath.org/cd/logic1#> .
+@prefix psm: <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .  
+@prefix asg: <https://paul.ti.rw.fau.de/~jo00defe/ont/asg#> .  
+@prefix : <http://localhost:3001/> . 
+
+
+:myLamp a psm:ProtocolStateMachine ;
+    psm:hasProtocolStateMachineElement (
+        :offState 
+        :coldState 
+        :warmState 
+        :switchOnTransition 
+        :switchOffTransitionColdOff
+        :switchOffTransitionWarmOff
+        :overheatTransitionColdOff
+        :overheatTransitionWarmOff
+        :writeBrightnessTransitionOffOff
+        :writeBrightnessTransitionColdCold 
+        :writeBrightnessTransitionWarmWarm
+        :writeBrightnessTransitionWarmCold
+        :swapColorColdWarm
+        :swapColorWarmCold
+    ) .
+
+:offState a psm:State ;
+    psm:hasIncomingTransition (
+        :switchOffTransitionColdOff
+        :switchOffTransitionWarmOff 
+        :writeBrightnessTransitionOffOff 
+        :overheatTransitionColdOff 
+        :overheatTransitionWarmOff
+    ) ;
+    psm:hasOutgoingTransition (
+        :switchOnTransition 
+        :writeBrightnessTransitionOffOff
+    ) .
+
+:coldState a psm:State ;
+    psm:hasIncomingTransition (
+        :switchOnTransition
+        :writeBrightnessTransitionColdCold
+        :swapColorWarmCold
+    ) ;
+    psm:hasOutgoingTransition (
+        :switchOffTransitionColdOff
+        :overheatTransitionColdOff
+        :writeBrightnessTransitionColdCold
+        :swapColorColdWarm
+    ) .
+
+:warmState a psm:State ;
+    psm:hasIncomingTransition (
+        :writeBrightnessTransitionWarmWarm
+        :swapColorColdWarm
+    ) ;
+    psm:hasOutgoingTransition (
+        :switchOffTransitionWarmOff
+        :writeBrightnessTransitionWarmWarm
+        :swapColorWarmCold
+        :overheatTransitionWarmOff
+    ) .
+
+:switchOnTransition a psm:ProtocolTransition ;
+    psm:hasSource :offState ;
+    psm:hasTarget :coldState ;
+    psm:hasPrecondition [
+        a math:Application ;
+        math:operator rel:eq ;  
+        math:arguments (
+            [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/switchedOn" ]  ]
+            "false"^^xsd:boolean 
+        )
+    ] ;
+    psm:hasPostcondition "true"^^xsd:boolean ;
+    psm:hasTrigger [ a td:ActionAffordance ; td:hasForm [ td:href "http://localhost:3001/switchOn" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/switchedOn" ] ] ;
+        asg:hasValue "true"^^xsd:boolean
+    ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] ;
+        asg:hasValue "cold"^^xsd:string
+    ] .
+
+:switchOffTransitionColdOff a psm:ProtocolTransition ;
+    psm:hasSource :coldState ;
+    psm:hasTarget :offState ;
+    psm:hasPrecondition  [
+        a math:Application ;
+        math:operator rel:eq ;  
+        math:arguments (
+            [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] 
+            "cold"^^xsd:string 
+        )
+    ] ;
+    psm:hasPostcondition "true"^^xsd:boolean ;
+    psm:hasTrigger [ a td:ActionAffordance ; td:hasForm [ td:href "http://localhost:3001/switchOff" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/switchedOn" ] ] ;
+        asg:hasValue "false"^^xsd:boolean
+    ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] ;
+        asg:hasValue "null"^^xsd:string  # null als xsd:datatype ??
+    ] .
+
+:switchOffTransitionWarmOff a psm:ProtocolTransition ;
+    psm:hasSource :warmState ;
+    psm:hasTarget :offState ;
+    psm:hasPrecondition [
+        a math:Application ;
+        math:operator rel:eq ;  
+        math:arguments (
+            [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] 
+            "warm"^^xsd:string 
+        )
+    ] ;
+    psm:hasPostcondition "true"^^xsd:boolean ;
+    psm:hasTrigger [ a td:ActionAffordance ; td:hasForm [ td:href "http://localhost:3001/switchOff" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/switchedOn" ] ] ;
+        asg:hasValue "false"^^xsd:boolean
+    ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] ;
+        asg:hasValue "null"^^xsd:string 
+    ] .
+
+:overheatTransitionColdOff a psm:ProtocolTransition ;
+    psm:hasSource :coldState ;
+    psm:hasTarget :offState ;
+    psm:hasPrecondition [
+        a math:Application ;
+        math:operator rel:eq ;  
+        math:arguments (
+            [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] 
+            "cold"^^xsd:string 
+        )
+    ] ;
+    psm:hasPostcondition "true"^^xsd:boolean ;
+    psm:hasTrigger [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/overheat" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/switchedOn" ] ] ;
+        asg:hasValue "false"^^xsd:boolean
+    ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] ;
+        asg:hasValue "null"^^xsd:string 
+    ] .
+
+:overheatTransitionWarmOff a psm:ProtocolTransition ;
+    psm:hasSource :warmState ;
+    psm:hasTarget :offState ;
+    psm:hasPrecondition [
+        a math:Application ;
+        math:operator rel:eq ;  
+        math:arguments (
+            [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] 
+            "warm"^^xsd:string 
+        )
+    ] ;
+    psm:hasPostcondition "true"^^xsd:boolean ;
+    psm:hasTrigger [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/overheat" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/switchedOn" ] ] ;
+        asg:hasValue "false"^^xsd:boolean
+    ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] ;
+        asg:hasValue "null"^^xsd:string 
+    ] .
+
+:writeBrightnessTransitionOffOff a psm:ProtocolTransition ;
+    psm:hasSource :offState ;
+    psm:hasTarget :offState ;
+    psm:hasPrecondition [ 
+        a math:Application ;
+        math:operator rel:eq ;  
+        math:arguments (
+            [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/switchedOn" ] ] 
+            "false"^^xsd:boolean 
+        )
+    ] ;
+    psm:hasPostcondition "true"^^xsd:boolean ;
+    psm:hasTrigger [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/brightness" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/brightness" ] ] ;
+        asg:hasValue asg:HTTPRequestParameter 
+    ] .
+
+:writeBrightnessTransitionColdCold a psm:ProtocolTransition ;
+    psm:hasSource :coldState ;
+    psm:hasTarget :coldState ;
+    psm:hasPrecondition [ 
+        a math:Application ;
+        math:operator rel:eq ;  
+        math:arguments (
+            [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] 
+            "cold"^^xsd:boolean 
+        )
+    ] ;
+    psm:hasPostcondition "true"^^xsd:boolean ;
+    psm:hasTrigger [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/brightness" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/brightness" ] ] ;
+        asg:hasValue asg:HTTPRequestParameter 
+    ] .
+
+:writeBrightnessTransitionWarmWarm a psm:ProtocolTransition ;
+    psm:hasSource :warmState ;
+    psm:hasTarget :warmState ;
+    psm:hasPrecondition  [
+        a math:Application ;
+        math:operator rel:eq ;  
+        math:arguments (
+            [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] 
+            "warm"^^xsd:string 
+        )
+    ] ;
+    psm:hasPostcondition [
+        a math:Application ;
+        math:operator rel:leq ;
+        math:arguments (
+            asg:HTTPRequestParameter 
+            "0.8"^^xsd:double 
+        )
+    ] ;
+    psm:hasTrigger [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/brightness" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/brightness" ] ] ;
+        asg:hasValue asg:HTTPRequestParameter 
+    ] . 
+
+:writeBrightnessTransitionWarmCold a psm:ProtocolTransition ;
+    psm:hasSource :warmState ;
+    psm:hasTarget :cold ;
+    psm:hasPrecondition  [
+        a math:Application ;
+        math:operator rel:eq ;  
+        math:arguments (
+            [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] 
+            "warm"^^xsd:string 
+        )
+    ] ;
+    psm:hasPostcondition [
+        a math:Application ;
+        math:operator rel:gt ;
+        math:arguments (
+            asg:HTTPRequestParameter
+            "0.8"^^xsd:double 
+        )
+    ] ;
+    psm:hasTrigger [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/brightness" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/brightness" ] ] ;
+        asg:hasValue asg:HTTPRequestParameter 
+    ] . 
+
+:swapColorColdWarm a psm:ProtocolTransition ;
+    psm:hasSource :coldState ;
+    psm:hasTarget :warmState ;
+    psm:hasPrecondition  [
+        a math:Application ;
+        math:operator log:and ;  
+        math:arguments (
+            [
+                a math:Application ;
+                math:operator rel:eq ;  
+                math:arguments (
+                    [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] 
+                    "cold"^^xsd:string 
+                )
+            ]
+            [
+                a math:Application ;
+                math:operator rel:leq ;
+                math:arguments (
+                    [ a td:EventAffordance ; td:hasForm [ td:href "http://localhost:3001/brightness" ] ]
+                    "0.8"^^xsd:double 
+                )
+            ] 
+        )
+    ] ;
+    psm:hasPostcondition "true"^^xsd:boolean ;
+    psm:hasTrigger [ a td:ActionAffordance ; td:hasForm [ td:href "http://localhost:3001/swapColor" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] ;
+        asg:hasValue "warm"^^xsd:string 
+    ] . 
+
+:swapColorWarmCold a psm:ProtocolTransition ;
+    psm:hasSource :warmState ;
+    psm:hasTarget :coldState ;
+    psm:hasPrecondition [
+        a math:Application ;
+        math:operator rel:eq ;
+        math:arguments (
+            [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] 
+            "warm"^^xsd:string 
+        ) 
+    ] ;
+    psm:hasPostcondition "true"^^xsd:boolean ;
+    psm:hasTrigger [ a td:ActionAffordance ; td:hasForm [ td:href "http://localhost:3001/swapColor" ] ] ;
+    psm:hasOperation [
+        a asg:Assignment ; 
+        asg:hasTarget [ a td:PropertyAffordance ; td:hasForm [ td:href "http://localhost:3001/color" ] ] ;
+        asg:hasValue "warm"^^xsd:string 
+    ] . 
