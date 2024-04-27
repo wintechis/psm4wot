@@ -1,0 +1,1063 @@
+{
+  "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
+  "header" : {
+    "languages" : [ "en", "undefined" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://www.w3.org/2000/01/rdf-schema", "https://paul.ti.rw.fau.de/~jo00defe/ont/psm", "http://www.w3.org/2001/XMLSchema" ],
+    "title" : {
+      "en" : "Protocol State Machine Ontology"
+    },
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "version" : "0.0.1",
+    "comments" : {
+      "en" : "Ontology to model a UML Protocol State Machine with."
+    },
+    "other" : {
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "http://purl.org/NET/rdflicense/cc-by4.0",
+        "type" : "iri"
+      } ],
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "undefined",
+        "value" : "https://freumi.inrupt.net/profile/card#",
+        "type" : "iri"
+      } ],
+      "author" : [ {
+        "identifier" : "author",
+        "language" : "undefined",
+        "value" : "Christoph Stade",
+        "type" : "label"
+      } ],
+      "preferredNamespacePrefix" : [ {
+        "identifier" : "preferredNamespacePrefix",
+        "language" : "undefined",
+        "value" : "psm",
+        "type" : "label"
+      } ],
+      "preferredNamespaceUri" : [ {
+        "identifier" : "preferredNamespaceUri",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.0.1",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "Protocol State Machine Ontology",
+        "type" : "label"
+      } ]
+    }
+  },
+  "namespace" : [ ],
+  "class" : [ {
+    "id" : "0",
+    "type" : "owl:Class"
+  }, {
+    "id" : "2",
+    "type" : "owl:Class"
+  }, {
+    "id" : "12",
+    "type" : "owl:Class"
+  }, {
+    "id" : "8",
+    "type" : "owl:Class"
+  }, {
+    "id" : "19",
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "3",
+    "type" : "owl:Class"
+  }, {
+    "id" : "16",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "35",
+    "type" : "owl:Class"
+  }, {
+    "id" : "36",
+    "type" : "owl:Class"
+  }, {
+    "id" : "28",
+    "type" : "owl:Class"
+  }, {
+    "id" : "5",
+    "type" : "owl:Class"
+  }, {
+    "id" : "6",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "7",
+    "type" : "owl:Class"
+  }, {
+    "id" : "34",
+    "type" : "owl:Class"
+  }, {
+    "id" : "10",
+    "type" : "owl:Class"
+  }, {
+    "id" : "1",
+    "type" : "owl:Class"
+  } ],
+  "classAttribute" : [ {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Region",
+      "undefined" : "Region"
+    },
+    "comment" : {
+      "en" : "Denotes behavior fragment that may execute concurrently with its orthogonal Regions."
+    },
+    "id" : "0",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "PseudoState",
+      "undefined" : "PseudoState"
+    },
+    "subClasses" : [ "4", "5", "6", "7", "8" ],
+    "comment" : {
+      "en" : "Abstraction that encompasses different types of transient Vertices in the StateMachine graph."
+    },
+    "id" : "2",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Trigger",
+      "undefined" : "Trigger"
+    },
+    "comment" : {
+      "en" : "Specifies an Event whose occurrence, when dispatched, may trigger traversal of the Transition."
+    },
+    "id" : "12",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Junction",
+      "undefined" : "Junction"
+    },
+    "comment" : {
+      "en" : "Common target Vertex for two or more Transitions originating from Vertices in different orthogonal Regions."
+    },
+    "id" : "8",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SubmachineState",
+      "undefined" : "SubMachineState"
+    },
+    "comment" : {
+      "en" : "State refering to entire StateMachine, conceptually \"nested\" within the state."
+    },
+    "id" : "19",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ProtocolStateMachineElement",
+      "undefined" : "ProtocolStateMachineElement"
+    },
+    "subClasses" : [ "16", "12", "28", "10", "3" ],
+    "comment" : {
+      "en" : "Parent class of all objects a Protocol State Machine can contain."
+    },
+    "id" : "13"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Join",
+      "undefined" : "Join"
+    },
+    "id" : "4",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "State",
+      "undefined" : "State"
+    },
+    "subClasses" : [ "19", "1", "35", "2", "36" ],
+    "comment" : {
+      "en" : "Models a situation in the execution of a StateMachine Behavior during which some invariant condition holds."
+    },
+    "id" : "3",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Operation",
+      "undefined" : "Operation"
+    },
+    "comment" : {
+      "undefined" : "Operation associated with a Protocol Transition"
+    },
+    "id" : "16",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "18",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "FinalState",
+      "undefined" : "FinalState"
+    },
+    "comment" : {
+      "en" : "State signifying completion of enclosing Region."
+    },
+    "id" : "35",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SimpleState",
+      "undefined" : "SimpleState"
+    },
+    "comment" : {
+      "en" : "State without internal Vertices or Transitions."
+    },
+    "id" : "36",
+    "superClasses" : [ "3" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ProtocolStateMachine",
+      "undefined" : "ProtocolStateMachine"
+    },
+    "comment" : {
+      "en" : "Expresses interaction with an object through a usage protocol, by describing legal sequence of operations."
+    },
+    "id" : "28",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "InitialState",
+      "undefined" : "InitialState"
+    },
+    "comment" : {
+      "en" : "Represents starting point for a Region."
+    },
+    "id" : "5",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Fork",
+      "undefined" : "Fork"
+    },
+    "comment" : {
+      "en" : "Splits an incoming Transition into two or more Transitions terminating on Vertices in orthogonal Regions of a composite State."
+    },
+    "id" : "6",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "OrthogonalComposite",
+      "undefined" : "OrthogonalComposite"
+    },
+    "comment" : {
+      "undefined" : "Composite State containing more than one Region."
+    },
+    "id" : "32",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Choice",
+      "undefined" : "Choice"
+    },
+    "comment" : {
+      "en" : "Junction with guard Constraints on all outgoing Transitions evaluated dynamically."
+    },
+    "id" : "7",
+    "superClasses" : [ "2" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "SimpleComposite",
+      "undefined" : "SimpleComposite"
+    },
+    "comment" : {
+      "undefined" : "Composite State containing exactly one Region."
+    },
+    "id" : "34",
+    "superClasses" : [ "1" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "ProtocolTransition",
+      "undefined" : "ProtocolTransition"
+    },
+    "comment" : {
+      "en" : "Specialization of behavioral transition specifying a pre- and postcondition as guard and a trigger."
+    },
+    "id" : "10",
+    "superClasses" : [ "13" ]
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "instances" : 0,
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ],
+      "seeAlso" : [ {
+        "identifier" : "seeAlso",
+        "language" : "undefined",
+        "value" : "https://www.omg.org/spec/UML/2.5.1/PDF",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Composite",
+      "undefined" : "Composite"
+    },
+    "subClasses" : [ "34", "32", "0" ],
+    "comment" : {
+      "en" : "State containing at least one Region."
+    },
+    "id" : "1",
+    "superClasses" : [ "3" ]
+  } ],
+  "property" : [ {
+    "id" : "9",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "11",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "14",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "15",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "17",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "20",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "21",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "22",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "23",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "24",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "25",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "26",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "27",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "29",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "30",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "31",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "33",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "37",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "39",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "40",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "41",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "43",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "44",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "45",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "46",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "47",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "48",
+    "type" : "owl:objectProperty"
+  } ],
+  "propertyAttribute" : [ {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "3",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasSource",
+      "undefined" : "hasSource"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Specifies state that a transition is coming from."
+    },
+    "attributes" : [ "object" ],
+    "id" : "9"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "10",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasInternalTransition",
+      "undefined" : "hasInternalTransition"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "All internal transitions of a state."
+    },
+    "attributes" : [ "object" ],
+    "id" : "11"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "12",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasTrigger",
+      "undefined" : "hasTrigger"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Event-trigger of a transition."
+    },
+    "attributes" : [ "object" ],
+    "id" : "14"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "16",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasOperation",
+      "undefined" : "hasOperation"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Operation a Protocol Transition is reffering to."
+    },
+    "attributes" : [ "object" ],
+    "id" : "15"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "18",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasPrecondition",
+      "undefined" : "hasPrecondition"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Precondition-guard of a transition."
+    },
+    "attributes" : [ "object" ],
+    "id" : "17"
+  }, {
+    "range" : "13",
+    "domain" : "3",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "20"
+  }, {
+    "range" : "13",
+    "domain" : "10",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "21"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "3",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasTarget",
+      "undefined" : "hasTarget"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Specifies state that a transition is going into."
+    },
+    "attributes" : [ "object" ],
+    "id" : "22"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "13",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasProtocolStateMachineElement",
+      "undefined" : "hasProtocolStateMachineElement"
+    },
+    "domain" : "13",
+    "comment" : {
+      "en" : "All elements of a Protocol State Machine."
+    },
+    "attributes" : [ "object" ],
+    "id" : "23"
+  }, {
+    "range" : "13",
+    "domain" : "16",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "24"
+  }, {
+    "range" : "1",
+    "domain" : "0",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "25"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "18",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasPostcondition",
+      "undefined" : "hasPostcondition"
+    },
+    "domain" : "10",
+    "comment" : {
+      "en" : "Postcondition-guard of a transition."
+    },
+    "attributes" : [ "object" ],
+    "id" : "26"
+  }, {
+    "range" : "13",
+    "domain" : "28",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "27"
+  }, {
+    "range" : "13",
+    "domain" : "12",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "29"
+  }, {
+    "range" : "2",
+    "domain" : "8",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "30"
+  }, {
+    "range" : "1",
+    "domain" : "32",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "31"
+  }, {
+    "range" : "1",
+    "domain" : "34",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "33"
+  }, {
+    "range" : "3",
+    "domain" : "1",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "37"
+  }, {
+    "range" : "3",
+    "domain" : "35",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "38"
+  }, {
+    "range" : "3",
+    "domain" : "2",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "39"
+  }, {
+    "range" : "3",
+    "domain" : "36",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "40"
+  }, {
+    "range" : "2",
+    "domain" : "4",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "41"
+  }, {
+    "range" : "2",
+    "domain" : "5",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "42"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "10",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasLocalTransition",
+      "undefined" : "hasLocalTransition"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "All local transitions of a composite state."
+    },
+    "attributes" : [ "object" ],
+    "id" : "43"
+  }, {
+    "range" : "2",
+    "domain" : "6",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "44"
+  }, {
+    "range" : "2",
+    "domain" : "7",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "45"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "10",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasIncomingTransition",
+      "undefined" : "hasIncomingTransition"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "All transitions coming into a state."
+    },
+    "attributes" : [ "object" ],
+    "id" : "46"
+  }, {
+    "range" : "3",
+    "domain" : "19",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "47"
+  }, {
+    "iri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition",
+    "baseIri" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm",
+    "range" : "10",
+    "annotations" : {
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "hasOutgoingTransition",
+      "undefined" : "hasOutgoingTransition"
+    },
+    "domain" : "3",
+    "comment" : {
+      "en" : "All transitions going out of a state."
+    },
+    "attributes" : [ "object" ],
+    "id" : "48"
+  } ]
+}

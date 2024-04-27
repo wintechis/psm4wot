@@ -1,0 +1,291 @@
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm> <http://purl.org/dc/terms/author> "Christoph Stade" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm> <http://purl.org/dc/terms/contributor> <https://freumi.inrupt.net/profile/card#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm> <http://purl.org/dc/terms/license> <http://purl.org/NET/rdflicense/cc-by4.0> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm> <http://purl.org/dc/terms/title> "Protocol State Machine Ontology"@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm> <http://purl.org/vocab/vann/preferredNamespacePrefix> "psm" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm> <http://purl.org/vocab/vann/preferredNamespaceUri> "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm> <http://www.w3.org/2000/01/rdf-schema#comment> "Ontology to model a UML Protocol State Machine with."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm> <http://www.w3.org/2002/07/owl#versionInfo> "0.0.1" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/author
+<http://purl.org/dc/terms/author> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition> <http://www.w3.org/2000/01/rdf-schema#range> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition> <http://www.w3.org/2000/01/rdf-schema#comment> "All transitions coming into a state."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition> <http://www.w3.org/2000/01/rdf-schema#label> "hasIncomingTransition" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition> <http://www.w3.org/2000/01/rdf-schema#range> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition> <http://www.w3.org/2000/01/rdf-schema#comment> "All internal transitions of a state."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition> <http://www.w3.org/2000/01/rdf-schema#label> "hasInternalTransition" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition> <http://www.w3.org/2000/01/rdf-schema#range> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition> <http://www.w3.org/2000/01/rdf-schema#comment> "All local transitions of a composite state."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition> <http://www.w3.org/2000/01/rdf-schema#label> "hasLocalTransition" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation> <http://www.w3.org/2000/01/rdf-schema#range> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation> <http://www.w3.org/2000/01/rdf-schema#comment> "Operation a Protocol Transition is reffering to."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation> <http://www.w3.org/2000/01/rdf-schema#label> "hasOperation" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition> <http://www.w3.org/2000/01/rdf-schema#range> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition> <http://www.w3.org/2000/01/rdf-schema#comment> "All transitions going out of a state."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition> <http://www.w3.org/2000/01/rdf-schema#label> "hasOutgoingTransition" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition> <http://www.w3.org/2000/01/rdf-schema#comment> "Postcondition-guard of a transition."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition> <http://www.w3.org/2000/01/rdf-schema#label> "hasPostcondition" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition> <http://www.w3.org/2000/01/rdf-schema#comment> "Precondition-guard of a transition."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition> <http://www.w3.org/2000/01/rdf-schema#label> "hasPrecondition" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement> <http://www.w3.org/2000/01/rdf-schema#range> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement> <http://www.w3.org/2000/01/rdf-schema#comment> "All elements of a Protocol State Machine."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement> <http://www.w3.org/2000/01/rdf-schema#label> "hasProtocolStateMachineElement" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource> <http://www.w3.org/2000/01/rdf-schema#range> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies state that a transition is coming from."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource> <http://www.w3.org/2000/01/rdf-schema#label> "hasSource" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget> <http://www.w3.org/2000/01/rdf-schema#range> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies state that a transition is going into."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget> <http://www.w3.org/2000/01/rdf-schema#label> "hasTarget" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger> <http://www.w3.org/2000/01/rdf-schema#domain> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger> <http://www.w3.org/2000/01/rdf-schema#range> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger> <http://www.w3.org/2000/01/rdf-schema#comment> "Event-trigger of a transition."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger> <http://www.w3.org/2000/01/rdf-schema#label> "hasTrigger" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice> <http://www.w3.org/2000/01/rdf-schema#comment> "Junction with guard Constraints on all outgoing Transitions evaluated dynamically."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice> <http://www.w3.org/2000/01/rdf-schema#label> "Choice" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite> <http://www.w3.org/2000/01/rdf-schema#comment> "State containing at least one Region."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite> <http://www.w3.org/2000/01/rdf-schema#label> "Composite" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState> <http://www.w3.org/2000/01/rdf-schema#comment> "State signifying completion of enclosing Region."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState> <http://www.w3.org/2000/01/rdf-schema#label> "FinalState" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork> <http://www.w3.org/2000/01/rdf-schema#comment> "Splits an incoming Transition into two or more Transitions terminating on Vertices in orthogonal Regions of a composite State."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork> <http://www.w3.org/2000/01/rdf-schema#label> "Fork" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents starting point for a Region."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState> <http://www.w3.org/2000/01/rdf-schema#label> "InitialState" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join> <http://www.w3.org/2000/01/rdf-schema#label> "Join" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction> <http://www.w3.org/2000/01/rdf-schema#comment> "Common target Vertex for two or more Transitions originating from Vertices in different orthogonal Regions."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction> <http://www.w3.org/2000/01/rdf-schema#label> "Junction" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation> <http://www.w3.org/2000/01/rdf-schema#comment> "Operation associated with a Protocol Transition" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation> <http://www.w3.org/2000/01/rdf-schema#label> "Operation" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite> <http://www.w3.org/2000/01/rdf-schema#comment> "Composite State containing more than one Region." .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite> <http://www.w3.org/2000/01/rdf-schema#label> "OrthogonalComposite" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine> <http://www.w3.org/2000/01/rdf-schema#comment> "Expresses interaction with an object through a usage protocol, by describing legal sequence of operations."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine> <http://www.w3.org/2000/01/rdf-schema#label> "ProtocolStateMachine" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> <http://www.w3.org/2000/01/rdf-schema#comment> "Parent class of all objects a Protocol State Machine can contain."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> <http://www.w3.org/2000/01/rdf-schema#label> "ProtocolStateMachineElement" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> <http://www.w3.org/2000/01/rdf-schema#comment> "Specialization of behavioral transition specifying a pre- and postcondition as guard and a trigger."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> <http://www.w3.org/2000/01/rdf-schema#label> "ProtocolTransition" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> <http://www.w3.org/2000/01/rdf-schema#comment> "Abstraction that encompasses different types of transient Vertices in the StateMachine graph."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> <http://www.w3.org/2000/01/rdf-schema#label> "PseudoState" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region> <http://www.w3.org/2000/01/rdf-schema#comment> "Denotes behavior fragment that may execute concurrently with its orthogonal Regions."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region> <http://www.w3.org/2000/01/rdf-schema#label> "Region" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite> <http://www.w3.org/2000/01/rdf-schema#comment> "Composite State containing exactly one Region." .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite> <http://www.w3.org/2000/01/rdf-schema#label> "SimpleComposite" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState> <http://www.w3.org/2000/01/rdf-schema#comment> "State without internal Vertices or Transitions."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState> <http://www.w3.org/2000/01/rdf-schema#label> "SimpleState" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> <http://www.w3.org/2000/01/rdf-schema#comment> "Models a situation in the execution of a StateMachine Behavior during which some invariant condition holds."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> <http://www.w3.org/2000/01/rdf-schema#label> "State" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState> <http://www.w3.org/2000/01/rdf-schema#comment> "State refering to entire StateMachine, conceptually \"nested\" within the state."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState> <http://www.w3.org/2000/01/rdf-schema#label> "SubMachineState" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies an Event whose occurrence, when dispatched, may trigger traversal of the Transition."@en .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger> <http://www.w3.org/2000/01/rdf-schema#label> "Trigger" .
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://www.omg.org/spec/UML/2.5.1/PDF" .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

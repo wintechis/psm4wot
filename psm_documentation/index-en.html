@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>Protocol State Machine Ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"https://paul.ti.rw.fau.de/~jo00defe/ont/psm#","image":"http://vowl.visualdataweb.org/webvowl/#iri=https://paul.ti.rw.fau.de/~jo00defe/ont/psm#","name":"Protocol State Machine Ontology", "headline":"Document describing the ontology https://paul.ti.rw.fau.de/~jo00defe/ont/psm#", "dateReleased":"Sat Apr 27 10:27:50 CEST 2024", "version":"0.0.1", "license":"http://purl.org/NET/rdflicense/cc-by4.0", "contributor":[{"@type":"Person","name":"https://freumi.inrupt.net/profile/card#","url":"https://freumi.inrupt.net/profile/card#"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Protocol State Machine Ontology</h1>
+
+
+<dl>
+<dt>Latest version:</dt>
+<dd><a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a></dd>
+<dt>Revision:</dt>
+<dd>0.0.1</dd>
+<dt>Contributors:</dt>
+<dd><a href="https://freumi.inrupt.net/profile/card#">https://freumi.inrupt.net/profile/card#</a></dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://purl.org/NET/rdflicense/cc-by4.0" target="_blank"><img src="https://img.shields.io/badge/License-http://purl.org/NET/rdflicense/cc_by4.0-blue.svg" alt="http://purl.org/NET/rdflicense/cc-by4.0" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd><dt>Cite as:</dt>
+<dd> Protocol State Machine Ontology. Revision: 0.0.1.</dd>
+</dl>
+
+<hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div><div id="toc"></div>  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">Protocol State Machine Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#Choice"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice">Choice</a>
+   </li>
+   <li>
+      <a href="#Composite"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite">Composite</a>
+   </li>
+   <li>
+      <a href="#FinalState"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState">FinalState</a>
+   </li>
+   <li>
+      <a href="#Fork" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork">Fork</a>
+   </li>
+   <li>
+      <a href="#InitialState"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState">InitialState</a>
+   </li>
+   <li>
+      <a href="#Join" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join">Join</a>
+   </li>
+   <li>
+      <a href="#Junction"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction">Junction</a>
+   </li>
+   <li>
+      <a href="#Operation"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation">Operation</a>
+   </li>
+   <li>
+      <a href="#OrthogonalComposite"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite">OrthogonalComposite</a>
+   </li>
+   <li>
+      <a href="#ProtocolStateMachine"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine">ProtocolStateMachine</a>
+   </li>
+   <li>
+      <a href="#ProtocolStateMachineElement"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement">ProtocolStateMachineElement</a>
+   </li>
+   <li>
+      <a href="#ProtocolTransition"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a>
+   </li>
+   <li>
+      <a href="#PseudoState"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState">PseudoState</a>
+   </li>
+   <li>
+      <a href="#Region"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region">Region</a>
+   </li>
+   <li>
+      <a href="#SimpleComposite"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite">SimpleComposite</a>
+   </li>
+   <li>
+      <a href="#SimpleState"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState">SimpleState</a>
+   </li>
+   <li>
+      <a href="#State"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a>
+   </li>
+   <li>
+      <a href="#SubmachineState"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState">SubMachineState</a>
+   </li>
+   <li>
+      <a href="#Trigger"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger">Trigger</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#hasIncomingTransition"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition">hasIncomingTransition</a>
+   </li>
+   <li>
+      <a href="#hasInternalTransition"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition">hasInternalTransition</a>
+   </li>
+   <li>
+      <a href="#hasLocalTransition"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition">hasLocalTransition</a>
+   </li>
+   <li>
+      <a href="#hasOperation"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation">hasOperation</a>
+   </li>
+   <li>
+      <a href="#hasOutgoingTransition"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition">hasOutgoingTransition</a>
+   </li>
+   <li>
+      <a href="#hasPostcondition"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition">hasPostcondition</a>
+   </li>
+   <li>
+      <a href="#hasPrecondition"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition">hasPrecondition</a>
+   </li>
+   <li>
+      <a href="#hasProtocolStateMachineElement"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement">hasProtocolStateMachineElement</a>
+   </li>
+   <li>
+      <a href="#hasSource"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource">hasSource</a>
+   </li>
+   <li>
+      <a href="#hasTarget"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget">hasTarget</a>
+   </li>
+   <li>
+      <a href="#hasTrigger"
+         title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger">hasTrigger</a>
+   </li>
+</ul><iframe src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">Protocol State Machine Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">Ontology to model a UML Protocol State Machine with.</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for Protocol State Machine Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Protocol State Machine Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#Choice" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice">Choice</a></li>
+  <li><a href="#Composite" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite">Composite</a></li>
+  <li><a href="#FinalState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState">FinalState</a></li>
+  <li><a href="#Fork" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork">Fork</a></li>
+  <li><a href="#InitialState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState">InitialState</a></li>
+  <li><a href="#Join" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join">Join</a></li>
+  <li><a href="#Junction" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction">Junction</a></li>
+  <li><a href="#Operation" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation">Operation</a></li>
+  <li><a href="#OrthogonalComposite" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite">OrthogonalComposite</a></li>
+  <li><a href="#ProtocolStateMachine" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine">ProtocolStateMachine</a></li>
+  <li><a href="#ProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement">ProtocolStateMachineElement</a></li>
+  <li><a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a></li>
+  <li><a href="#PseudoState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState">PseudoState</a></li>
+  <li><a href="#Region" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region">Region</a></li>
+  <li><a href="#SimpleComposite" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite">SimpleComposite</a></li>
+  <li><a href="#SimpleState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState">SimpleState</a></li>
+  <li><a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a></li>
+  <li><a href="#SubmachineState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState">SubMachineState</a></li>
+  <li><a href="#Trigger" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger">Trigger</a></li>
+ </ul>
+ <div class="entity" id="Choice">
+  <h3>Choice<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice</p>
+  <div class="comment">
+   <span class="markdown">Junction with guard Constraints on all outgoing Transitions evaluated dynamically.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#PseudoState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState">PseudoState</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Composite">
+  <h3>Composite<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite</p>
+  <div class="comment">
+   <span class="markdown">State containing at least one Region.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#OrthogonalComposite" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite">OrthogonalComposite</a> <sup class="type-c" title="class">c</sup>, <a href="#Region" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region">Region</a> <sup class="type-c" title="class">c</sup>, <a href="#SimpleComposite" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite">SimpleComposite</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="FinalState">
+  <h3>FinalState<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState</p>
+  <div class="comment">
+   <span class="markdown">State signifying completion of enclosing Region.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Fork">
+  <h3>Fork<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork</p>
+  <div class="comment">
+   <span class="markdown">Splits an incoming Transition into two or more Transitions terminating on Vertices in orthogonal Regions of a composite State.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#PseudoState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState">PseudoState</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="InitialState">
+  <h3>InitialState<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState</p>
+  <div class="comment">
+   <span class="markdown">Represents starting point for a Region.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#PseudoState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState">PseudoState</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Join">
+  <h3>Join<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#PseudoState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState">PseudoState</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Junction">
+  <h3>Junction<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction</p>
+  <div class="comment">
+   <span class="markdown">Common target Vertex for two or more Transitions originating from Vertices in different orthogonal Regions.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#PseudoState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState">PseudoState</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Operation">
+  <h3>Operation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation</p>
+  <div class="comment">
+   <span class="markdown">Operation associated with a Protocol Transition</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement">ProtocolStateMachineElement</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasOperation" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation">hasOperation</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="OrthogonalComposite">
+  <h3>OrthogonalComposite<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#OrthogonalComposite</p>
+  <div class="comment">
+   <span class="markdown">Composite State containing more than one Region.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Composite" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite">Composite</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ProtocolStateMachine">
+  <h3>ProtocolStateMachine<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine</p>
+  <div class="comment">
+   <span class="markdown">Expresses interaction with an object through a usage protocol, by describing legal sequence of operations.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement">ProtocolStateMachineElement</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ProtocolStateMachineElement">
+  <h3>ProtocolStateMachineElement<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement</p>
+  <div class="comment">
+   <span class="markdown">Parent class of all objects a Protocol State Machine can contain.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Operation" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation">Operation</a> <sup class="type-c" title="class">c</sup>, <a href="#ProtocolStateMachine" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachine">ProtocolStateMachine</a> <sup class="type-c" title="class">c</sup>, <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>, <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>, <a href="#Trigger" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger">Trigger</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement">hasProtocolStateMachineElement</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement">hasProtocolStateMachineElement</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ProtocolTransition">
+  <h3>ProtocolTransition<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition</p>
+  <div class="comment">
+   <span class="markdown">Specialization of behavioral transition specifying a pre- and postcondition as guard and a trigger.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement">ProtocolStateMachineElement</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasOperation" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation">hasOperation</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasPostcondition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition">hasPostcondition</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasPrecondition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition">hasPrecondition</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasSource" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource">hasSource</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTarget" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget">hasTarget</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTrigger" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger">hasTrigger</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasIncomingTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition">hasIncomingTransition</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasInternalTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition">hasInternalTransition</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasLocalTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition">hasLocalTransition</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasOutgoingTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition">hasOutgoingTransition</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PseudoState">
+  <h3>PseudoState<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState</p>
+  <div class="comment">
+   <span class="markdown">Abstraction that encompasses different types of transient Vertices in the StateMachine graph.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Choice" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Choice">Choice</a> <sup class="type-c" title="class">c</sup>, <a href="#Fork" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Fork">Fork</a> <sup class="type-c" title="class">c</sup>, <a href="#InitialState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#InitialState">InitialState</a> <sup class="type-c" title="class">c</sup>, <a href="#Join" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Join">Join</a> <sup class="type-c" title="class">c</sup>, <a href="#Junction" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Junction">Junction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Region">
+  <h3>Region<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Region</p>
+  <div class="comment">
+   <span class="markdown">Denotes behavior fragment that may execute concurrently with its orthogonal Regions.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Composite" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite">Composite</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SimpleComposite">
+  <h3>SimpleComposite<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleComposite</p>
+  <div class="comment">
+   <span class="markdown">Composite State containing exactly one Region.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Composite" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite">Composite</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SimpleState">
+  <h3>SimpleState<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState</p>
+  <div class="comment">
+   <span class="markdown">State without internal Vertices or Transitions.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="State">
+  <h3>State<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State</p>
+  <div class="comment">
+   <span class="markdown">Models a situation in the execution of a StateMachine Behavior during which some invariant condition holds.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement">ProtocolStateMachineElement</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Composite" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Composite">Composite</a> <sup class="type-c" title="class">c</sup>, <a href="#FinalState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#FinalState">FinalState</a> <sup class="type-c" title="class">c</sup>, <a href="#PseudoState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#PseudoState">PseudoState</a> <sup class="type-c" title="class">c</sup>, <a href="#SimpleState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SimpleState">SimpleState</a> <sup class="type-c" title="class">c</sup>, <a href="#SubmachineState" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState">SubMachineState</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasIncomingTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition">hasIncomingTransition</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasInternalTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition">hasInternalTransition</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasLocalTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition">hasLocalTransition</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasOutgoingTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition">hasOutgoingTransition</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasSource" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource">hasSource</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasTarget" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget">hasTarget</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SubmachineState">
+  <h3>SubMachineState<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#SubmachineState</p>
+  <div class="comment">
+   <span class="markdown">State refering to entire StateMachine, conceptually "nested" within the state.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Trigger">
+  <h3>Trigger<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger</p>
+  <div class="comment">
+   <span class="markdown">Specifies an Event whose occurrence, when dispatched, may trigger traversal of the Transition.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#ProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement">ProtocolStateMachineElement</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasTrigger" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger">hasTrigger</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#hasIncomingTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition">hasIncomingTransition</a></li>
+  <li><a href="#hasInternalTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition">hasInternalTransition</a></li>
+  <li><a href="#hasLocalTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition">hasLocalTransition</a></li>
+  <li><a href="#hasOperation" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation">hasOperation</a></li>
+  <li><a href="#hasOutgoingTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition">hasOutgoingTransition</a></li>
+  <li><a href="#hasPostcondition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition">hasPostcondition</a></li>
+  <li><a href="#hasPrecondition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition">hasPrecondition</a></li>
+  <li><a href="#hasProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement">hasProtocolStateMachineElement</a></li>
+  <li><a href="#hasSource" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource">hasSource</a></li>
+  <li><a href="#hasTarget" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget">hasTarget</a></li>
+  <li><a href="#hasTrigger" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger">hasTrigger</a></li>
+ </ul>
+ <div class="entity" id="hasIncomingTransition">
+  <h3>hasIncomingTransition<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasIncomingTransition</p>
+  <div class="comment">
+   <span class="markdown">All transitions coming into a state.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasInternalTransition">
+  <h3>hasInternalTransition<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasInternalTransition</p>
+  <div class="comment">
+   <span class="markdown">All internal transitions of a state.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasLocalTransition">
+  <h3>hasLocalTransition<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasLocalTransition</p>
+  <div class="comment">
+   <span class="markdown">All local transitions of a composite state.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasOperation">
+  <h3>hasOperation<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOperation</p>
+  <div class="comment">
+   <span class="markdown">Operation a Protocol Transition is reffering to.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Operation" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Operation">Operation</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasOutgoingTransition">
+  <h3>hasOutgoingTransition<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasOutgoingTransition</p>
+  <div class="comment">
+   <span class="markdown">All transitions going out of a state.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPostcondition">
+  <h3>hasPostcondition<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPostcondition</p>
+  <div class="comment">
+   <span class="markdown">Postcondition-guard of a transition.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPrecondition">
+  <h3>hasPrecondition<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasPrecondition</p>
+  <div class="comment">
+   <span class="markdown">Precondition-guard of a transition.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasProtocolStateMachineElement">
+  <h3>hasProtocolStateMachineElement<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasProtocolStateMachineElement</p>
+  <div class="comment">
+   <span class="markdown">All elements of a Protocol State Machine.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement">ProtocolStateMachineElement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#ProtocolStateMachineElement" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolStateMachineElement">ProtocolStateMachineElement</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasSource">
+  <h3>hasSource<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasSource</p>
+  <div class="comment">
+   <span class="markdown">Specifies state that a transition is coming from.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasTarget">
+  <h3>hasTarget<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTarget</p>
+  <div class="comment">
+   <span class="markdown">Specifies state that a transition is going into.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#State" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#State">State</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasTrigger">
+  <h3>hasTrigger<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://paul.ti.rw.fau.de/~jo00defe/ont/psm#hasTrigger</p>
+  <div class="comment">
+   <span class="markdown">Event-trigger of a transition.</span>
+  </div>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    <a href="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#">https://paul.ti.rw.fau.de/~jo00defe/ont/psm#</a>
+   </dd>
+  </dl>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#ProtocolTransition" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#ProtocolTransition">ProtocolTransition</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Trigger" title="https://paul.ti.rw.fau.de/~jo00defe/ont/psm#Trigger">Trigger</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>
