@@ -1,0 +1,30 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix math: <http://openmath.org/vocab/math#> .
+@prefix psm: <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> . 
+@prefix asg: <https://paul.ti.rw.fau.de/~jo00defe/ont/asg#> . 
+
+
+<> a owl:Ontology ;
+    owl:versionInfo "0.0.1" ;
+    rdfs:comment "Alignment of the asg ontology with TD-aligned psm ontology." ;
+    dcterms:title "Simple Planning Annotation"@en ;
+    dcterms:license <http://purl.org/NET/rdflicense/cc-by4.0>  ;
+    dcterms:contributor <https://freumi.inrupt.net/profile/card#> ;
+    dcterms:author "Christoph Stade" ;
+    owl:imports td:, asg:, psm: .
+
+asg:Assignment rdfs:subClassOf psm:Operation .
+
+asg:hasAssignment rdfs:domain td:InteractionAffordance .
+
+asg:hasTarget rdfs:range td:PropertyAffordance . 
+
+asg:hasValue schema:rangeIncludes td:PropertyAffordance , 
+    xsd:simpleType ,
+    math:Application . 

@@ -1,0 +1,225 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix : <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> . 
+
+
+<https://paul.ti.rw.fau.de/~jo00defe/ont/psm> a owl:Ontology ; 
+    vann:preferredNamespacePrefix "psm" ;
+    vann:preferredNamespaceUri "https://paul.ti.rw.fau.de/~jo00defe/ont/psm#" ; 
+    owl:versionInfo "0.0.1" ;
+    rdfs:comment "Ontology to model a UML Protocol State Machine with."@en ;
+    dcterms:title "Protocol State Machine Ontology"@en ;
+    dcterms:license <http://purl.org/NET/rdflicense/cc-by4.0>  ;
+    dcterms:contributor <https://freumi.inrupt.net/profile/card#> ;
+    dcterms:author "Christoph Stade" .
+
+:ProtocolStateMachine a owl:Class ;
+    rdfs:subClassOf :ProtocolStateMachineElement ;
+    rdfs:label "ProtocolStateMachine" ;
+    rdfs:comment "Expresses interaction with an object through a usage protocol, by describing legal sequence of operations."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:ProtocolStateMachineElement a owl:Class ;
+    rdfs:label "ProtocolStateMachineElement" ;
+    rdfs:comment "Parent class of all objects a Protocol State Machine can contain."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:State a owl:Class ;
+    rdfs:subClassOf :ProtocolStateMachineElement ;
+    rdfs:label "State" ;
+    rdfs:comment "Models a situation in the execution of a StateMachine Behavior during which some invariant condition holds."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:InitialState a owl:Class ;
+    rdfs:subClassOf :PseudoState ;
+    rdfs:label "InitialState" ;
+    rdfs:comment "Represents starting point for a Region."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:FinalState a owl:Class ;
+    rdfs:subClassOf :State ;
+    rdfs:label "FinalState" ;
+    rdfs:comment "State signifying completion of enclosing Region."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:SimpleState a owl:Class ;
+    rdfs:subClassOf :State ;
+    rdfs:label "SimpleState" ;
+    rdfs:comment "State without internal Vertices or Transitions."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:Composite a owl:Class ;
+    rdfs:subClassOf :State ;
+    rdfs:label "Composite" ;
+    rdfs:comment "State containing at least one Region."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:PseudoState a owl:Class ;
+    rdfs:subClassOf :State ;
+    rdfs:label "PseudoState" ;
+    rdfs:comment "Abstraction that encompasses different types of transient Vertices in the StateMachine graph."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:SubmachineState a owl:Class ;
+    rdfs:subClassOf :State ;
+    rdfs:label "SubMachineState" ;
+    rdfs:comment "State refering to entire StateMachine, conceptually \"nested\" within the state."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:Region a owl:Class ;
+    rdfs:subClassOf :Composite ;
+    rdfs:label "Region" ;
+    rdfs:comment "Denotes behavior fragment that may execute concurrently with its orthogonal Regions."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:SimpleComposite a owl:Class ;
+    rdfs:subClassOf :Composite ;
+    rdfs:label "SimpleComposite" ;
+    rdfs:comment "Composite State containing exactly one Region." ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:OrthogonalComposite a owl:Class ;
+    rdfs:subClassOf :Composite ;
+    rdfs:label "OrthogonalComposite" ;
+    rdfs:comment "Composite State containing more than one Region." ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:Fork a owl:Class ;
+    rdfs:subClassOf :PseudoState ;
+    rdfs:label "Fork" ;
+    rdfs:comment "Splits an incoming Transition into two or more Transitions terminating on Vertices in orthogonal Regions of a composite State."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:Join a owl:Class ;
+    rdfs:subClassOf :PseudoState ;
+    rdfs:label "Join" ;
+    # rdfs:comment "Logical AND."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:Junction a owl:Class ;
+    rdfs:subClassOf :PseudoState ;
+    rdfs:label "Junction" ;
+    rdfs:comment "Common target Vertex for two or more Transitions originating from Vertices in different orthogonal Regions."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:Choice a owl:Class ;
+    rdfs:subClassOf :PseudoState ;
+    rdfs:label "Choice" ;
+    rdfs:comment "Junction with guard Constraints on all outgoing Transitions evaluated dynamically."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:ProtocolTransition a owl:Class ;
+    rdfs:subClassOf :ProtocolStateMachineElement ;
+    rdfs:label "ProtocolTransition" ;
+    rdfs:comment "Specialization of behavioral transition specifying a pre- and postcondition as guard and a trigger."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:Trigger a owl:Class ;
+    rdfs:subClassOf :ProtocolStateMachineElement ;
+    rdfs:label "Trigger" ;
+    rdfs:comment "Specifies an Event whose occurrence, when dispatched, may trigger traversal of the Transition."@en ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:Operation a owl:Class ;
+    rdfs:subClassOf :ProtocolStateMachineElement ;
+    rdfs:label "Operation" ;
+    rdfs:comment "Operation associated with a Protocol Transition" ;
+    rdfs:seeAlso "https://www.omg.org/spec/UML/2.5.1/PDF" ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:hasProtocolStateMachineElement a owl:ObjectProperty ; 
+    rdfs:domain :ProtocolStateMachineElement ;
+    rdfs:range :ProtocolStateMachineElement ;
+    rdfs:label "hasProtocolStateMachineElement" ;
+    rdfs:comment "All elements of a Protocol State Machine."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+
+:hasIncomingTransition a owl:ObjectProperty ;
+    rdfs:domain :State ;
+    rdfs:range :ProtocolTransition ;
+    rdfs:label "hasIncomingTransition" ;
+    rdfs:comment "All transitions coming into a state."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:hasOutgoingTransition a owl:ObjectProperty ;
+    rdfs:domain :State ;
+    rdfs:range :ProtocolTransition ;
+    rdfs:label "hasOutgoingTransition" ;
+    rdfs:comment "All transitions going out of a state."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:hasInternalTransition a owl:ObjectProperty ;
+    rdfs:domain :State ;
+    rdfs:range :ProtocolTransition ;
+    rdfs:label "hasInternalTransition" ;
+    rdfs:comment "All internal transitions of a state."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:hasLocalTransition a owl:ObjectProperty ;
+    rdfs:domain :State ;
+    rdfs:range :ProtocolTransition ;
+    rdfs:label "hasLocalTransition" ;
+    rdfs:comment "All local transitions of a composite state."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:hasSource a owl:ObjectProperty ;
+    rdfs:domain :ProtocolTransition ;
+    rdfs:range :State ;
+    rdfs:label "hasSource" ;
+    rdfs:comment "Specifies state that a transition is coming from."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:hasTarget a owl:ObjectProperty ;
+    rdfs:domain :ProtocolTransition ;
+    rdfs:range :State ;
+    rdfs:label "hasTarget" ;
+    rdfs:comment "Specifies state that a transition is going into."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:hasPrecondition a owl:ObjectProperty ;
+    rdfs:domain :ProtocolTransition ;
+    rdfs:label "hasPrecondition" ;
+    rdfs:comment "Precondition-guard of a transition."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:hasPostcondition a owl:ObjectProperty ;
+    rdfs:domain :ProtocolTransition ;
+    rdfs:label "hasPostcondition" ;
+    rdfs:comment "Postcondition-guard of a transition."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:hasTrigger a owl:ObjectProperty ;
+    rdfs:domain :ProtocolTransition ;
+    rdfs:range :Trigger ;
+    rdfs:label "hasTrigger" ;
+    rdfs:comment "Event-trigger of a transition."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
+
+:hasOperation a owl:ObjectProperty ;
+    rdfs:domain :ProtocolTransition ;
+    rdfs:range :Operation ;
+    rdfs:label "hasOperation" ;
+    rdfs:comment "Operation a Protocol Transition is reffering to."@en ;
+    rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
