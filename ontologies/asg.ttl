@@ -23,7 +23,7 @@
 
 :hasTarget a owl:ObjectProperty ;
     rdfs:domain :Assignment ;
-    rdfs:range owl:Class .
+    rdfs:range rdfs:Class .
 
 :hasValue a owl:ObjectProperty ;
     rdfs:domain :Assignment .
