@@ -155,7 +155,6 @@
     rdfs:comment "All elements of a Protocol State Machine."@en ;
     rdfs:isDefinedBy <https://paul.ti.rw.fau.de/~jo00defe/ont/psm#> .
 
-
 :hasIncomingTransition a owl:ObjectProperty ;
     rdfs:domain :State ;
     rdfs:range :ProtocolTransition ;
